@@ -1,7 +1,15 @@
 #vk
+
+try:
+    import vk_api
+except ModuleNotFoundError:
+    import os
+    print("Installing extensions for project")
+    os.system("pip install -r requirements.txt")
+
 from vk_api import VkApi
 from vk_api.bot_longpoll import VkBotEventType, VkBotLongPoll
-import vk_api
+
 
 #project files
 import utils
@@ -12,7 +20,7 @@ import config
 from datetime import datetime
 
 
-vk = vk_api.VkApi(config.token)
+vk = VkApi(config.token)
 longpool = VkBotLongPoll(vk=vk, group_id=config.group_id)
 vk_handler = VkHandler(vk.get_api())
 
