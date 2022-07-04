@@ -7,14 +7,13 @@ import vk_api
 import utils
 from vkhandler import VkHandler
 import keyboard
-
+import config
 #other
 from datetime import datetime
 
-token = '63f2c1c371af7de4014655ee11f3d1f51718f4f707e17f7eebedfad96a6b4e7857dba4427d608abff5df7'
 
-vk = vk_api.VkApi(token=token)
-longpool = VkBotLongPoll(vk=vk, group_id="213782343")
+vk = vk_api.VkApi(config.token)
+longpool = VkBotLongPoll(vk=vk, group_id=config.group_id)
 vk_handler = VkHandler(vk.get_api())
 
 print(f"Bot started at {datetime.now()}")
